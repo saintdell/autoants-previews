@@ -21,74 +21,101 @@ const BIZ = {
 };
 </script>
 <title>Gregalls Tree Service — Tree Removal &amp; Trimming | Baton Rouge, LA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Restyle per prospect: swap these three and the whole site rethemes */
+    /* Restyle per prospect: swap these and the whole site rethemes */
     --brand:      #3d5229;   /* deep green */
-    --brand-dark: #123420;
     --accent:     #c9622b;   /* safety orange — CTA color */
-    --bg:         #f7f5f0;
-    --ink:        #22271f;
+    --brand-dark: #123420;
+    --bg:         #f6f4ee;
+    --ink:        #1f241c;
     --card:       #ffffff;
+    --muted:      #5c6157;
+  }
+  @supports (color: color-mix(in srgb, red, black)) {
+    :root { --brand-dark: color-mix(in srgb, var(--brand) 68%, black); }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; }
+  html { scroll-behavior: smooth; }
+  body { font-family: Inter, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; }
   a { color: inherit; }
+  h1, h2, h3 { font-family: Archivo, Inter, -apple-system, sans-serif; }
 
   /* ---- Sticky emergency bar ---- */
-  .storm-bar { position: sticky; top: 0; z-index: 50; background: var(--accent); color: #fff; text-align: center; padding: .55rem 1rem; font-weight: 700; font-size: .95rem; }
-  .storm-bar a { color: #fff; text-decoration: underline; }
+  .storm-bar { position: sticky; top: 0; z-index: 50; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 80%, black)); color: #fff; text-align: center; padding: .6rem 1rem; font-weight: 700; font-size: .95rem; letter-spacing: .01em; box-shadow: 0 2px 10px rgba(0,0,0,.2); }
+  @supports not (color: color-mix(in srgb, red, black)) { .storm-bar { background: var(--accent); } }
+  .storm-bar a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
 
-  header { background: linear-gradient(rgba(18,52,32,.82), rgba(18,52,32,.82)), var(--brand-dark); color: #fff; padding: 3.5rem 1.25rem 4rem; text-align: center; }
-  header .badge-row { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.25rem; }
-  .badge { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: .3rem .9rem; font-size: .8rem; font-weight: 600; }
-  header h1 { font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.15; margin-bottom: .75rem; }
-  header p.sub { font-size: 1.15rem; opacity: .92; max-width: 34rem; margin: 0 auto 1.75rem; }
-  .cta-row { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
-  .btn { display: inline-block; padding: .95rem 1.6rem; border-radius: 10px; font-weight: 800; font-size: 1.05rem; text-decoration: none; }
-  .btn-call { background: var(--accent); color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.25); }
-  .btn-quote { background: #fff; color: var(--brand-dark); }
+  /* ---- Hero ---- */
+  header { position: relative; overflow: hidden; color: #fff; padding: 4rem 1.25rem 5.5rem; text-align: center;
+    background:
+      radial-gradient(90rem 40rem at 85% -20%, rgba(255,255,255,.10), transparent 60%),
+      radial-gradient(60rem 30rem at 10% 110%, rgba(0,0,0,.35), transparent 60%),
+      linear-gradient(170deg, var(--brand) 0%, var(--brand-dark) 78%); }
+  header .treeline { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 54px; display: block; opacity: .5; }
+  header .badge-row { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; position: relative; }
+  .badge { background: rgba(255,255,255,.12); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: .35rem 1rem; font-size: .8rem; font-weight: 700; letter-spacing: .02em; }
+  header h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); font-weight: 900; line-height: 1.08; margin-bottom: .9rem; text-shadow: 0 2px 18px rgba(0,0,0,.35); letter-spacing: -.01em; position: relative; }
+  header p.sub { font-size: clamp(1.05rem, 2.5vw, 1.25rem); opacity: .94; max-width: 36rem; margin: 0 auto 2rem; position: relative; }
+  .cta-row { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; position: relative; }
+  .btn { display: inline-block; padding: 1rem 1.8rem; border-radius: 12px; font-weight: 800; font-size: 1.05rem; text-decoration: none; letter-spacing: .01em; transition: transform .15s ease, box-shadow .15s ease; }
+  .btn:active { transform: scale(.98); }
+  .btn-call { background: var(--accent); color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+  .btn-quote { background: rgba(255,255,255,.96); color: var(--brand-dark); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
 
-  section { padding: 3rem 1.25rem; max-width: 62rem; margin: 0 auto; }
-  h2 { font-size: 1.7rem; color: var(--brand-dark); margin-bottom: 1.25rem; text-align: center; }
+  section { padding: 3.5rem 1.25rem; max-width: 64rem; margin: 0 auto; }
+  h2 { font-size: clamp(1.5rem, 3.5vw, 1.9rem); font-weight: 800; color: var(--brand-dark); margin-bottom: .4rem; text-align: center; letter-spacing: -.01em; }
+  h2 + .rule, .rule { width: 56px; height: 4px; border-radius: 2px; background: var(--accent); margin: 0 auto 1.6rem; }
 
-  .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
-  .svc { background: var(--card); border-radius: 12px; padding: 1.4rem; box-shadow: 0 1px 6px rgba(0,0,0,.07); }
-  .svc .emoji { font-size: 1.8rem; }
-  .svc h3 { margin: .5rem 0 .35rem; font-size: 1.1rem; color: var(--brand-dark); }
-  .svc p { font-size: .92rem; color: #555a50; }
+  .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.1rem; }
+  .svc { background: var(--card); border-radius: 16px; padding: 1.6rem 1.4rem; box-shadow: 0 2px 14px rgba(30,40,25,.08); border-top: 4px solid var(--brand); transition: transform .15s ease, box-shadow .15s ease; }
+  .svc:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(30,40,25,.14); }
+  .svc .chip { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; background: color-mix(in srgb, var(--brand) 12%, white); margin-bottom: .8rem; }
+  @supports not (color: color-mix(in srgb, red, black)) { .svc .chip { background: #eef2ea; } }
+  .svc h3 { margin: 0 0 .35rem; font-size: 1.12rem; color: var(--brand-dark); }
+  .svc p { font-size: .93rem; color: var(--muted); }
 
   /* ---- Quote form ---- */
-  .quote-wrap { background: var(--brand); border-radius: 16px; padding: 2rem 1.5rem; color: #fff; }
+  .quote-wrap { background: linear-gradient(160deg, var(--brand), var(--brand-dark)); border-radius: 22px; padding: 2.5rem 1.6rem; color: #fff; box-shadow: 0 18px 44px rgba(20,30,18,.28); }
   .quote-wrap h2 { color: #fff; }
-  .quote-wrap p.lede { text-align: center; opacity: .9; margin-bottom: 1.5rem; }
-  form { display: grid; gap: .8rem; max-width: 28rem; margin: 0 auto; }
-  label { font-size: .85rem; font-weight: 700; }
-  input, select, textarea { width: 100%; padding: .8rem; border-radius: 8px; border: none; font-size: 1rem; font-family: inherit; }
-  .urgency { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+  .quote-wrap .rule { background: var(--accent); }
+  .quote-wrap p.lede { text-align: center; opacity: .92; margin-bottom: 1.6rem; }
+  form { display: grid; gap: .9rem; max-width: 29rem; margin: 0 auto; }
+  label { font-size: .82rem; font-weight: 700; letter-spacing: .03em; }
+  input, select, textarea { width: 100%; padding: .9rem 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,.25); font-size: 1rem; font-family: inherit; background: rgba(255,255,255,.97); transition: box-shadow .15s ease; }
+  input:focus, textarea:focus { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 55%, transparent); }
+  .urgency { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
   .urgency input { display: none; }
-  .urgency label { display: block; text-align: center; padding: .85rem .5rem; border-radius: 8px; background: rgba(255,255,255,.15); border: 2px solid rgba(255,255,255,.35); cursor: pointer; font-size: .95rem; }
-  .urgency input:checked + label { background: var(--accent); border-color: var(--accent); }
-  button[type=submit] { padding: 1rem; border: none; border-radius: 10px; background: var(--accent); color: #fff; font-size: 1.1rem; font-weight: 800; cursor: pointer; }
-  .quote-note { font-size: .8rem; text-align: center; opacity: .8; margin-top: .5rem; }
+  .urgency label { display: block; text-align: center; padding: .95rem .5rem; border-radius: 12px; background: rgba(255,255,255,.12); border: 2px solid rgba(255,255,255,.35); cursor: pointer; font-size: .95rem; transition: all .15s ease; }
+  .urgency input:checked + label { background: var(--accent); border-color: var(--accent); box-shadow: 0 6px 16px rgba(0,0,0,.25); }
+  button[type=submit] { padding: 1.1rem; border: none; border-radius: 12px; background: var(--accent); color: #fff; font-size: 1.1rem; font-weight: 800; cursor: pointer; letter-spacing: .02em; box-shadow: 0 8px 20px rgba(0,0,0,.28); transition: transform .15s ease; }
+  button[type=submit]:active { transform: scale(.98); }
+  .quote-note { font-size: .82rem; text-align: center; opacity: .85; margin-top: .5rem; }
   .quote-success { display: none; text-align: center; padding: 2rem 1rem; }
-  .quote-success h3 { font-size: 1.4rem; margin-bottom: .5rem; }
+  .quote-success h3 { font-size: 1.5rem; margin-bottom: .5rem; }
 
-  .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
-  .rev { background: var(--card); border-radius: 12px; padding: 1.3rem; box-shadow: 0 1px 6px rgba(0,0,0,.07); font-size: .95rem; }
-  .rev .stars { color: #eab308; letter-spacing: 2px; }
-  .rev .who { margin-top: .6rem; font-weight: 700; font-size: .85rem; color: #555a50; }
+  .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.1rem; }
+  .rev { background: var(--card); border-radius: 16px; padding: 1.5rem 1.4rem; box-shadow: 0 2px 14px rgba(30,40,25,.08); font-size: .95rem; border-left: 4px solid var(--accent); }
+  .rev .stars { color: #eab308; letter-spacing: 3px; font-size: 1.05rem; margin-bottom: .4rem; }
+  .rev .who { margin-top: .7rem; font-weight: 700; font-size: .83rem; color: var(--muted); }
 
-  .area-strip { text-align: center; background: var(--card); border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 6px rgba(0,0,0,.07); }
+  .area-strip { text-align: center; background: var(--card); border-radius: 18px; padding: 2rem 1.5rem; box-shadow: 0 2px 14px rgba(30,40,25,.08); }
+  .area-strip h2 { margin-bottom: .3rem; }
 
-  footer { background: var(--brand-dark); color: #fff; text-align: center; padding: 2.5rem 1.25rem; font-size: .9rem; }
-  footer .foot-call { font-size: 1.3rem; font-weight: 800; display: block; margin-bottom: .75rem; color: #fff; }
+  footer { position: relative; background: linear-gradient(180deg, var(--brand-dark), color-mix(in srgb, var(--brand-dark) 70%, black)); color: #fff; text-align: center; padding: 3rem 1.25rem 2.5rem; font-size: .9rem; }
+  @supports not (color: color-mix(in srgb, red, black)) { footer { background: var(--brand-dark); } }
+  footer .foot-call { font-size: 1.45rem; font-weight: 800; display: block; margin-bottom: .75rem; color: #fff; text-decoration: none; }
+  footer .foot-call:hover { text-decoration: underline; text-underline-offset: 4px; }
 
   /* Mobile floating call button */
   .float-call { display: none; }
   @media (max-width: 640px) {
-    .float-call { display: flex; position: fixed; bottom: 1rem; left: 1rem; right: 1rem; z-index: 60; background: var(--accent); color: #fff; border-radius: 12px; padding: 1rem; font-weight: 800; font-size: 1.1rem; justify-content: center; text-decoration: none; box-shadow: 0 6px 18px rgba(0,0,0,.3); }
-    body { padding-bottom: 4.5rem; }
+    .float-call { display: flex; position: fixed; bottom: 1rem; left: 1rem; right: 1rem; z-index: 60; background: var(--accent); color: #fff; border-radius: 14px; padding: 1.05rem; font-weight: 800; font-size: 1.1rem; justify-content: center; text-decoration: none; box-shadow: 0 10px 28px rgba(0,0,0,.35); animation: pulse 2.6s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { box-shadow: 0 10px 28px rgba(0,0,0,.35); } 50% { box-shadow: 0 10px 34px rgba(0,0,0,.55); } }
+    body { padding-bottom: 4.8rem; }
   }
 </style>
 </head>
@@ -108,21 +135,24 @@ const BIZ = {
     <a class="btn btn-call" data-tel href="#">📞 Call <span data-phone></span></a>
     <a class="btn btn-quote" href="#quote">Get a Fast Quote →</a>
   </div>
+  <svg class="treeline" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><path fill="rgba(0,0,0,.55)" d="M0,60 L0,38 C40,30 60,14 90,16 C120,18 130,32 160,30 C200,27 210,8 250,10 C290,12 300,30 340,32 C380,34 400,18 440,16 C480,14 500,30 540,34 C580,38 610,20 650,18 C690,16 710,34 750,36 C790,38 820,22 860,20 C900,18 920,34 960,36 C1000,38 1030,24 1070,22 C1110,20 1140,34 1200,38 L1200,60 Z"/></svg>
 </header>
 
 <section>
   <h2>What We Do</h2>
+  <div class="rule"></div>
   <div class="services">
-    <div class="svc"><div class="emoji">🌪️</div><h3>Emergency Storm Response</h3><p>Tree on your house or blocking your driveway? We come out same-day, tarp and clear safely.</p></div>
-    <div class="svc"><div class="emoji">🪓</div><h3>Tree Removal</h3><p>Full removals of any size — including tight spots, over structures, and hazard trees.</p></div>
-    <div class="svc"><div class="emoji">✂️</div><h3>Trimming &amp; Pruning</h3><p>Hurricane-prep thinning, deadwood removal, and shaping to keep limbs off your roof.</p></div>
-    <div class="svc"><div class="emoji">🪵</div><h3>Stump Grinding</h3><p>Grind it below grade so you can plant grass — or anything else — right over it.</p></div>
+    <div class="svc"><div class="chip">🌪️</div><h3>Emergency Storm Response</h3><p>Tree on your house or blocking your driveway? We come out same-day, tarp and clear safely.</p></div>
+    <div class="svc"><div class="chip">🪓</div><h3>Tree Removal</h3><p>Full removals of any size — including tight spots, over structures, and hazard trees.</p></div>
+    <div class="svc"><div class="chip">✂️</div><h3>Trimming &amp; Pruning</h3><p>Hurricane-prep thinning, deadwood removal, and shaping to keep limbs off your roof.</p></div>
+    <div class="svc"><div class="chip">🪵</div><h3>Stump Grinding</h3><p>Grind it below grade so you can plant grass — or anything else — right over it.</p></div>
   </div>
 </section>
 
 <section id="quote">
   <div class="quote-wrap">
     <h2>Get a Quote in Under a Minute</h2>
+    <div class="rule"></div>
     <p class="lede">Tell us what's going on — we'll call or text you back fast, even after hours.</p>
     <form id="quoteForm" onsubmit="return handleQuote(event)">
       <div class="urgency">
@@ -154,7 +184,8 @@ const BIZ = {
 
 <section>
   <div class="area-strip">
-    <h2 style="margin-bottom:.5rem">Service Area</h2>
+    <h2>Service Area</h2>
+    <div class="rule"></div>
     <p>Proudly serving <strong data-area></strong> — <span data-years></span>.</p>
   </div>
 </section>
