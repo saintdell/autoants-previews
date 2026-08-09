@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ============================================================
+     TREE SERVICE SITE TEMPLATE — per-prospect customization
+     Edit ONLY the CONFIG block below + the CSS variables.
+     Everything else populates from data-* attributes via JS.
+     ============================================================ -->
+<script>
+const BIZ = {
+  name: "Able Tree & Landscape Service",
+  phone: "(504) 828-1532",
+  phoneRaw: "+15048281532",
+  city: "Metairie",
+  serviceArea: "Metairie & Greater New Orleans",
+  yearsInBusiness: "45+ years",
+  rating: "", reviewCount: "", licensed: true,
+};
+</script>
+<title>Able Tree &amp; Landscape Service — Tree Removal &amp; Trimming | Metairie, LA</title>
+<style>
+  :root {
+    /* Restyle per prospect: swap these three and the whole site rethemes */
+    --brand:      #1b4d2e;   /* deep green */
+    --brand-dark: #123420;
+    --accent:     #c9622b;   /* safety orange — CTA color */
+    --bg:         #f7f5f0;
+    --ink:        #22271f;
+    --card:       #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; }
+  a { color: inherit; }
+
+  /* ---- Sticky emergency bar ---- */
+  .storm-bar { position: sticky; top: 0; z-index: 50; background: var(--accent); color: #fff; text-align: center; padding: .55rem 1rem; font-weight: 700; font-size: .95rem; }
+  .storm-bar a { color: #fff; text-decoration: underline; }
+
+  header { background: linear-gradient(rgba(18,52,32,.82), rgba(18,52,32,.82)), var(--brand-dark); color: #fff; padding: 3.5rem 1.25rem 4rem; text-align: center; }
+  header .badge-row { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .badge { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: .3rem .9rem; font-size: .8rem; font-weight: 600; }
+  header h1 { font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.15; margin-bottom: .75rem; }
+  header p.sub { font-size: 1.15rem; opacity: .92; max-width: 34rem; margin: 0 auto 1.75rem; }
+  .cta-row { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: .95rem 1.6rem; border-radius: 10px; font-weight: 800; font-size: 1.05rem; text-decoration: none; }
+  .btn-call { background: var(--accent); color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.25); }
+  .btn-quote { background: #fff; color: var(--brand-dark); }
+
+  section { padding: 3rem 1.25rem; max-width: 62rem; margin: 0 auto; }
+  h2 { font-size: 1.7rem; color: var(--brand-dark); margin-bottom: 1.25rem; text-align: center; }
+
+  .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .svc { background: var(--card); border-radius: 12px; padding: 1.4rem; box-shadow: 0 1px 6px rgba(0,0,0,.07); }
+  .svc .emoji { font-size: 1.8rem; }
+  .svc h3 { margin: .5rem 0 .35rem; font-size: 1.1rem; color: var(--brand-dark); }
+  .svc p { font-size: .92rem; color: #555a50; }
+
+  /* ---- Quote form ---- */
+  .quote-wrap { background: var(--brand); border-radius: 16px; padding: 2rem 1.5rem; color: #fff; }
+  .quote-wrap h2 { color: #fff; }
+  .quote-wrap p.lede { text-align: center; opacity: .9; margin-bottom: 1.5rem; }
+  form { display: grid; gap: .8rem; max-width: 28rem; margin: 0 auto; }
+  label { font-size: .85rem; font-weight: 700; }
+  input, select, textarea { width: 100%; padding: .8rem; border-radius: 8px; border: none; font-size: 1rem; font-family: inherit; }
+  .urgency { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+  .urgency input { display: none; }
+  .urgency label { display: block; text-align: center; padding: .85rem .5rem; border-radius: 8px; background: rgba(255,255,255,.15); border: 2px solid rgba(255,255,255,.35); cursor: pointer; font-size: .95rem; }
+  .urgency input:checked + label { background: var(--accent); border-color: var(--accent); }
+  button[type=submit] { padding: 1rem; border: none; border-radius: 10px; background: var(--accent); color: #fff; font-size: 1.1rem; font-weight: 800; cursor: pointer; }
+  .quote-note { font-size: .8rem; text-align: center; opacity: .8; margin-top: .5rem; }
+  .quote-success { display: none; text-align: center; padding: 2rem 1rem; }
+  .quote-success h3 { font-size: 1.4rem; margin-bottom: .5rem; }
+
+  .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+  .rev { background: var(--card); border-radius: 12px; padding: 1.3rem; box-shadow: 0 1px 6px rgba(0,0,0,.07); font-size: .95rem; }
+  .rev .stars { color: #eab308; letter-spacing: 2px; }
+  .rev .who { margin-top: .6rem; font-weight: 700; font-size: .85rem; color: #555a50; }
+
+  .area-strip { text-align: center; background: var(--card); border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 6px rgba(0,0,0,.07); }
+
+  footer { background: var(--brand-dark); color: #fff; text-align: center; padding: 2.5rem 1.25rem; font-size: .9rem; }
+  footer .foot-call { font-size: 1.3rem; font-weight: 800; display: block; margin-bottom: .75rem; color: #fff; }
+
+  /* Mobile floating call button */
+  .float-call { display: none; }
+  @media (max-width: 640px) {
+    .float-call { display: flex; position: fixed; bottom: 1rem; left: 1rem; right: 1rem; z-index: 60; background: var(--accent); color: #fff; border-radius: 12px; padding: 1rem; font-weight: 800; font-size: 1.1rem; justify-content: center; text-decoration: none; box-shadow: 0 6px 18px rgba(0,0,0,.3); }
+    body { padding-bottom: 4.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="storm-bar">⚠️ Storm damage? We answer 24/7 — <a data-tel href="#">Call now</a></div>
+
+<header>
+  <div class="badge-row">
+    <span class="badge">🌳 45+ Years in Business</span>
+    <span class="badge">🅰️ BBB A+ Accredited</span>
+    <span class="badge">📍 Metairie, LA</span>
+  </div>
+  <h1><span data-name></span></h1>
+  <p class="sub">Tree removal, trimming &amp; emergency storm response for <span data-area></span>. Fast quotes. No runaround.</p>
+  <div class="cta-row">
+    <a class="btn btn-call" data-tel href="#">📞 Call <span data-phone></span></a>
+    <a class="btn btn-quote" href="#quote">Get a Fast Quote →</a>
+  </div>
+</header>
+
+<section>
+  <h2>What We Do</h2>
+  <div class="services">
+    <div class="svc"><div class="emoji">🌪️</div><h3>Emergency Storm Response</h3><p>Tree on your house or blocking your driveway? We come out same-day, tarp and clear safely.</p></div>
+    <div class="svc"><div class="emoji">🪓</div><h3>Tree Removal</h3><p>Full removals of any size — including tight spots, over structures, and hazard trees.</p></div>
+    <div class="svc"><div class="emoji">✂️</div><h3>Trimming &amp; Pruning</h3><p>Hurricane-prep thinning, deadwood removal, and shaping to keep limbs off your roof.</p></div>
+    <div class="svc"><div class="emoji">🪵</div><h3>Stump Grinding</h3><p>Grind it below grade so you can plant grass — or anything else — right over it.</p></div>
+  </div>
+</section>
+
+<section id="quote">
+  <div class="quote-wrap">
+    <h2>Get a Quote in Under a Minute</h2>
+    <p class="lede">Tell us what's going on — we'll call or text you back fast, even after hours.</p>
+    <form id="quoteForm" onsubmit="return handleQuote(event)">
+      <div class="urgency">
+        <input type="radio" name="urgency" id="u1" value="emergency"><label for="u1">🚨 Emergency<br><small>tree down / on structure</small></label>
+        <input type="radio" name="urgency" id="u2" value="standard" checked><label for="u2">🗓️ Standard<br><small>quote for planned work</small></label>
+      </div>
+      <div><label for="fname">Name</label><input id="fname" name="name" required autocomplete="name"></div>
+      <div><label for="fphone">Phone</label><input id="fphone" name="phone" type="tel" required autocomplete="tel"></div>
+      <div><label for="faddr">Job address or neighborhood</label><input id="faddr" name="address" required></div>
+      <div><label for="fdesc">What do you need?</label><textarea id="fdesc" name="desc" rows="3" placeholder="e.g. Big oak limb hanging over the roof after last night's storm"></textarea></div>
+      <button type="submit">Send My Quote Request</button>
+      <p class="quote-note">Prefer to talk? <a data-tel href="#" style="color:#fff">Call <span data-phone></span></a> — emergencies answered 24/7.</p>
+    </form>
+    <div class="quote-success" id="quoteSuccess">
+      <h3>✅ Got it — we're on it.</h3>
+      <p>Expect a call or text shortly. If a tree is on a structure, call us right now: <a data-tel href="#" style="color:#fff;font-weight:800"><span data-phone></span></a></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Why Folks Trust Able Tree &amp; Landscape Service</h2>
+  <div class="reviews">
+    <div class="rev"><div style="font-size:1.8rem">🏡</div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">45+ Years in Metairie</p><p>One of the longest-running tree services in Greater New Orleans.</p></div>
+    <div class="rev"><div style="font-size:1.8rem">🅰️</div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">BBB A+ — Zero Complaints</p><p>Decades of BBB accreditation without a complaint on record.</p></div>
+    <div class="rev"><div style="font-size:1.8rem">🌪️</div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">Hurricane Veterans</p><p>Praised by customers for emergency work after Hurricane Ida.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="area-strip">
+    <h2 style="margin-bottom:.5rem">Service Area</h2>
+    <p>Proudly serving <strong data-area></strong> — <span data-years></span>.</p>
+  </div>
+</section>
+
+<footer>
+  <a class="foot-call" data-tel href="#">📞 <span data-phone></span></a>
+  <p><span data-name></span> · <span data-city></span>, Louisiana · 45+ years serving Greater New Orleans · BBB A+</p>
+  <p style="margin-top:1rem;font-size:.75rem;opacity:.6">Site by Blundell 7</p>
+</footer>
+
+<a class="float-call" data-tel href="#">📞 Tap to Call — Free Quote</a>
+
+<script>
+  // Populate all data-* slots from the CONFIG block
+  document.querySelectorAll('[data-name]').forEach(e => e.textContent = BIZ.name);
+  document.querySelectorAll('[data-phone]').forEach(e => e.textContent = BIZ.phone);
+  document.querySelectorAll('[data-city]').forEach(e => e.textContent = BIZ.city);
+  document.querySelectorAll('[data-area]').forEach(e => e.textContent = BIZ.serviceArea);
+  document.querySelectorAll('[data-years]').forEach(e => e.textContent = BIZ.yearsInBusiness);
+  document.querySelectorAll('[data-rating]').forEach(e => e.textContent = BIZ.rating);
+  document.querySelectorAll('[data-reviews]').forEach(e => e.textContent = BIZ.reviewCount);
+  document.querySelectorAll('[data-tel]').forEach(e => e.href = 'tel:' + BIZ.phoneRaw);
+  document.title = BIZ.name + ' — Tree Removal & Trimming | ' + BIZ.city + ', LA';
+
+  // Demo-mode quote form: swaps to success state. In the PAID build, wire this
+  // to a form backend (Formspree/Netlify/own endpoint) that texts the owner.
+  function handleQuote(ev) {
+    ev.preventDefault();
+    document.getElementById('quoteForm').style.display = 'none';
+    document.getElementById('quoteSuccess').style.display = 'block';
+    return false;
+  }
+</script>
+</body>
+</html>
