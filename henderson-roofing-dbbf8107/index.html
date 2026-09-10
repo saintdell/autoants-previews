@@ -5,30 +5,30 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- ============================================================
-     TREE SERVICE SITE TEMPLATE — per-prospect customization
+     TRADE SITE TEMPLATE — per-prospect customization
      Edit ONLY the CONFIG block below + the CSS variables.
      Everything else populates from data-* attributes via JS.
      ============================================================ -->
 <script>
 const BIZ = {
-  name: "Steve Robins Tree Service",
-  phone: "(225) 925-0610",
-  phoneRaw: "+12259250610",
-  city: "Baton Rouge",
-  serviceArea: "Greater Baton Rouge",
-  yearsInBusiness: "50+ years",
+  name: "Henderson Construction & Roofing",
+  phone: "(504) 738-6952",
+  phoneRaw: "+15047386952",
+  city: "Kenner",
+  serviceArea: "Kenner, Harahan & Greater New Orleans",
+  yearsInBusiness: "since 1993",
   rating: "", reviewCount: "", licensed: true,
 };
 </script>
-<title>Steve Robins Tree Service — Tree Removal &amp; Trimming | Baton Rouge, LA</title>
+<title>Henderson Construction &amp; Roofing — Roof Repair, Replacement &amp; Sheet Metal | Kenner, LA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     /* Restyle per prospect: swap these and the whole site rethemes */
-    --brand:      #4a3728;   /* deep green */
-    --accent:     #d97b29;   /* safety orange — CTA color */
+    --brand:      #33404d;   /* deep green */
+    --accent:     #c05a2c;   /* safety orange — CTA color */
     --brand-dark: #123420;
     --bg:         #f6f4ee;
     --ink:        #1f241c;
@@ -55,7 +55,6 @@ const BIZ = {
       radial-gradient(90rem 40rem at 85% -20%, rgba(255,255,255,.10), transparent 60%),
       radial-gradient(60rem 30rem at 10% 110%, rgba(0,0,0,.35), transparent 60%),
       linear-gradient(170deg, var(--brand) 0%, var(--brand-dark) 78%); }
-  header .treeline { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 54px; display: block; opacity: .5; }
   header .badge-row { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; position: relative; }
   .badge { background: rgba(255,255,255,.12); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: .35rem 1rem; font-size: .8rem; font-weight: 700; letter-spacing: .02em; }
   header h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); font-weight: 900; line-height: 1.08; margin-bottom: .9rem; text-shadow: 0 2px 18px rgba(0,0,0,.35); letter-spacing: -.01em; position: relative; }
@@ -121,32 +120,30 @@ const BIZ = {
 </head>
 <body>
 
-<div class="storm-bar">⚠️ Storm damage? We answer 24/7 — <a data-tel href="#">Call now</a></div>
+<div class="storm-bar">⚠️ Need a roofer in Kenner? <a data-tel href="#">Call now</a></div>
 
 <header>
   <div class="badge-row">
-    <span class="badge">🌳 50+ Years Experience</span>
-    <span class="badge">🅰️ BBB A+ Accredited</span>
-    <span class="badge">📍 Baton Rouge, LA</span>
+    <span class="badge">🪪 LA Licensed HIC #553268</span>
+    <span class="badge">🏠 Established 1993</span>
+    <span class="badge">🔨 Roofing & General Contracting</span>
   </div>
-  <img src="logo.png" alt="Steve Robins Tree Service logo" style="max-width:min(300px,72%);display:block;margin:0 auto 1.1rem;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.3)">
   <h1><span data-name></span></h1>
-  <p class="sub">Tree removal, trimming &amp; emergency storm response for <span data-area></span>. Fast quotes. No runaround.</p>
+  <p class="sub">Roof repair, replacement and sheet metal for <span data-area></span>. Free estimates. No runaround.</p>
   <div class="cta-row">
     <a class="btn btn-call" data-tel href="#">📞 Call <span data-phone></span></a>
     <a class="btn btn-quote" href="#quote">Get a Fast Quote →</a>
   </div>
-  <svg class="treeline" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><path fill="rgba(0,0,0,.55)" d="M0,60 L0,38 C40,30 60,14 90,16 C120,18 130,32 160,30 C200,27 210,8 250,10 C290,12 300,30 340,32 C380,34 400,18 440,16 C480,14 500,30 540,34 C580,38 610,20 650,18 C690,16 710,34 750,36 C790,38 820,22 860,20 C900,18 920,34 960,36 C1000,38 1030,24 1070,22 C1110,20 1140,34 1200,38 L1200,60 Z"/></svg>
 </header>
 
 <section>
   <h2>What We Do</h2>
   <div class="rule"></div>
   <div class="services">
-    <div class="svc"><div class="chip">🌪️</div><h3>Emergency Storm Response</h3><p>Tree on your house or blocking your driveway? We come out same-day, tarp and clear safely.</p></div>
-    <div class="svc"><div class="chip">🪓</div><h3>Tree Removal</h3><p>Full removals of any size — including tight spots, over structures, and hazard trees.</p></div>
-    <div class="svc"><div class="chip">✂️</div><h3>Trimming &amp; Pruning</h3><p>Hurricane-prep thinning, deadwood removal, and shaping to keep limbs off your roof.</p></div>
-    <div class="svc"><div class="chip">🪵</div><h3>Stump Grinding</h3><p>Grind it below grade so you can plant grass — or anything else — right over it.</p></div>
+    <div class="svc"><div class="chip">🌧️</div><h3>Leak Repair</h3><p>Find where the water is actually getting in, not where the stain is, and stop it.</p></div>
+    <div class="svc"><div class="chip">🏠</div><h3>Roof Replacement</h3><p>Full tear-off and replacement, with the price agreed before anybody gets on the roof.</p></div>
+    <div class="svc"><div class="chip">🔧</div><h3>Sheet Metal &amp; Flashing</h3><p>Valleys, flashing, gutters and metal work — the parts that fail first on a New Orleans roof.</p></div>
+    <div class="svc"><div class="chip">🔍</div><h3>Inspections &amp; Estimates</h3><p>A look before storm season, and a written number you can hold us to.</p></div>
   </div>
 </section>
 
@@ -157,29 +154,29 @@ const BIZ = {
     <p class="lede">Tell us what's going on and we'll get back to you.</p>
     <form id="quoteForm" onsubmit="return handleQuote(event)">
       <div class="urgency">
-        <input type="radio" name="urgency" id="u1" value="emergency"><label for="u1">🚨 Emergency<br><small>tree down / on structure</small></label>
+        <input type="radio" name="urgency" id="u1" value="emergency"><label for="u1">🚨 Emergency<br><small>active leak / storm damage</small></label>
         <input type="radio" name="urgency" id="u2" value="standard" checked><label for="u2">🗓️ Standard<br><small>quote for planned work</small></label>
       </div>
       <div><label for="fname">Name</label><input id="fname" name="name" required autocomplete="name"></div>
       <div><label for="fphone">Phone</label><input id="fphone" name="phone" type="tel" required autocomplete="tel"></div>
       <div><label for="faddr">Job address or neighborhood</label><input id="faddr" name="address" required></div>
-      <div><label for="fdesc">What do you need?</label><textarea id="fdesc" name="desc" rows="3" placeholder="e.g. Big oak limb hanging over the roof after last night's storm"></textarea></div>
+      <div><label for="fdesc">What do you need?</label><textarea id="fdesc" name="desc" rows="3" placeholder="e.g. water coming through the ceiling in the back bedroom"></textarea></div>
       <button type="submit">Send My Quote Request</button>
       <p class="quote-note">Prefer to talk? <a data-tel href="#" style="color:#fff">Call <span data-phone></span></a>.</p>
     </form>
     <div class="quote-success" id="quoteSuccess">
       <h3>✅ Got it — we're on it.</h3>
-      <p>Expect a call or text shortly. If a tree is on a structure, call us right now: <a data-tel href="#" style="color:#fff;font-weight:800"><span data-phone></span></a></p>
+      <p>Expect a call or text shortly. If water is coming into the house right now, call us: <a data-tel href="#" style="color:#fff;font-weight:800"><span data-phone></span></a></p>
     </div>
   </div>
 </section>
 
 <section>
-  <h2>Why Folks Trust Steve Robins Tree Service</h2>
+  <h2>Why Folks Trust Henderson Construction &amp; Roofing</h2>
   <div class="reviews">
-    <div class="rev"><div style="font-size:1.8rem">🏡</div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">Half a Century of Tree Work</p><p>50+ years of experience — there isn&#x27;t a tree problem in Baton Rouge this crew hasn&#x27;t solved.</p></div>
-    <div class="rev"><div style="font-size:1.8rem">🅰️</div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">BBB A+ Accredited</p><p>Accredited by the Better Business Bureau with an A+ rating since 2016.</p></div>
-    <div class="rev"><div style="font-size:1.8rem">🤝</div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">Old-School Service</p><p>A handshake business: show up, do the job right, clean up the yard.</p></div>
+    <div class="rev"><div style="font-size:1.8rem">🪪</div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">Louisiana Licensed Contractor</p><p>Licensed Louisiana Home Improvement Contractor, license #553268 with the State Licensing Board for Contractors.</p></div>
+    <div class="rev"><div style="font-size:1.8rem">🏠</div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">Serving Kenner Since 1993</p><p>More than thirty years roofing and building across Kenner, Harahan and the Greater New Orleans area.</p></div>
+    <div class="rev"><div style="font-size:1.8rem">🔨</div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">Roofing &amp; Full Construction</p><p>Roofing, general contracting and home improvement — residential and commercial.</p></div>
   </div>
 </section>
 
@@ -193,7 +190,7 @@ const BIZ = {
 
 <footer>
   <a class="foot-call" data-tel href="#">📞 <span data-phone></span></a>
-  <p><span data-name></span> · <span data-city></span>, Louisiana · 50+ years of tree work · BBB A+ Accredited</p>
+  <p><span data-name></span> · <span data-city></span>, Louisiana · Licensed Louisiana contractor · Kenner since 1993</p>
   <p style="margin-top:1rem;font-size:.75rem;opacity:.6">Site by AutoAnts</p>
 </footer>
 
@@ -209,7 +206,7 @@ const BIZ = {
   document.querySelectorAll('[data-rating]').forEach(e => e.textContent = BIZ.rating);
   document.querySelectorAll('[data-reviews]').forEach(e => e.textContent = BIZ.reviewCount);
   document.querySelectorAll('[data-tel]').forEach(e => e.href = 'tel:' + BIZ.phoneRaw);
-  document.title = BIZ.name + ' — Tree Removal & Trimming | ' + BIZ.city + ', LA';
+  document.title = BIZ.name + ' — Roof Repair, Replacement & Sheet Metal | ' + BIZ.city + ', LA';
 
   // Demo-mode quote form: swaps to success state. In the PAID build, wire this
   // to a form backend (Formspree/Netlify/own endpoint) that texts the owner.

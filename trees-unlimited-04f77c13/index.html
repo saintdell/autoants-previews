@@ -153,7 +153,7 @@ const BIZ = {
   <div class="quote-wrap">
     <h2>Get a Quote in Under a Minute</h2>
     <div class="rule"></div>
-    <p class="lede">Tell us what's going on — we'll call or text you back fast, even after hours.</p>
+    <p class="lede">Tell us what's going on and we'll get back to you.</p>
     <form id="quoteForm" onsubmit="return handleQuote(event)">
       <div class="urgency">
         <input type="radio" name="urgency" id="u1" value="emergency"><label for="u1">🚨 Emergency<br><small>tree down / on structure</small></label>
@@ -164,7 +164,7 @@ const BIZ = {
       <div><label for="faddr">Job address or neighborhood</label><input id="faddr" name="address" required></div>
       <div><label for="fdesc">What do you need?</label><textarea id="fdesc" name="desc" rows="3" placeholder="e.g. Big oak limb hanging over the roof after last night's storm"></textarea></div>
       <button type="submit">Send My Quote Request</button>
-      <p class="quote-note">Prefer to talk? <a data-tel href="#" style="color:#fff">Call <span data-phone></span></a> — emergencies answered 24/7.</p>
+      <p class="quote-note">Prefer to talk? <a data-tel href="#" style="color:#fff">Call <span data-phone></span></a>.</p>
     </form>
     <div class="quote-success" id="quoteSuccess">
       <h3>✅ Got it — we're on it.</h3>
