@@ -78,7 +78,8 @@ const VERT = {
   "reviewThemes": [
     "Customers describe fast arrival on emergencies and upfront pricing before any work starts.",
     "Neighbors highlight clean, respectful work and a fix that actually held."
-  ]
+  ],
+  "style": "clean"
 };
 /* /INJECT:VERT */
 </script>
@@ -87,7 +88,11 @@ const VERT = {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{ --brand:#1b4d2e; --accent:#e8842c; --brand-dark:#123420; --bg:#f6f4ee; --ink:#1f241c; --card:#fff; --muted:#5c6157; }
+  :root{ --brand:#1b4d2e; --accent:#e8842c; --brand-dark:#123420; --bg:#f6f4ee; --ink:#1f241c; --card:#fff; --muted:#5c6157;
+    /* design personality — overridden per vertical by VERT.style (rugged|clean|refined) */
+    --r-card:12px; --r-btn:10px; --r-chip:12px; --r-wrap:18px;
+    --sh-card:0 3px 14px rgba(30,40,25,.10); --sh-lift:0 12px 28px rgba(30,40,25,.16); --sh-btn:0 8px 24px rgba(0,0,0,.28);
+    --card-edge:4px; }
   @supports (color:color-mix(in srgb,red,black)){:root{--brand-dark:color-mix(in srgb,var(--brand) 68%,black)}}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -104,21 +109,21 @@ const VERT = {
   header h1{font-size:clamp(2.1rem,6vw,3.4rem);font-weight:900;line-height:1.08;margin-bottom:.9rem;text-shadow:0 2px 18px rgba(0,0,0,.35);position:relative}
   header p.sub{font-size:clamp(1.05rem,2.5vw,1.25rem);opacity:.94;max-width:36rem;margin:0 auto 2rem;position:relative}
   .cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;position:relative}
-  .btn{display:inline-block;padding:1rem 1.8rem;border-radius:12px;font-weight:800;font-size:1.05rem;text-decoration:none;transition:transform .15s ease}
+  .btn{display:inline-block;padding:1rem 1.8rem;border-radius:var(--r-btn);font-weight:800;font-size:1.05rem;text-decoration:none;transition:transform .15s ease}
   .btn:active{transform:scale(.98)}
-  .btn-call{background:var(--accent);color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.35)}
-  .btn-quote{background:rgba(255,255,255,.96);color:var(--brand-dark);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  .btn-call{background:var(--accent);color:#fff;box-shadow:var(--sh-btn)}
+  .btn-quote{background:rgba(255,255,255,.96);color:var(--brand-dark);box-shadow:var(--sh-btn)}
   section{padding:3.5rem 1.25rem;max-width:64rem;margin:0 auto}
   h2{font-size:clamp(1.5rem,3.5vw,1.9rem);font-weight:800;color:var(--brand-dark);margin-bottom:.4rem;text-align:center}
   .rule{width:56px;height:4px;border-radius:2px;background:var(--accent);margin:0 auto 1.6rem}
   .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.1rem}
-  .svc{background:var(--card);border-radius:16px;padding:1.6rem 1.4rem;box-shadow:0 2px 14px rgba(30,40,25,.08);border-top:4px solid var(--brand);transition:transform .15s ease,box-shadow .15s ease}
-  .svc:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(30,40,25,.14)}
-  .svc .chip{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;background:color-mix(in srgb,var(--brand) 12%,white);margin-bottom:.8rem}
+  .svc{background:var(--card);border-radius:var(--r-card);padding:1.6rem 1.4rem;box-shadow:var(--sh-card);border-top:var(--card-edge) solid var(--brand);transition:transform .15s ease,box-shadow .15s ease}
+  .svc:hover{transform:translateY(-3px);box-shadow:var(--sh-lift)}
+  .svc .chip{width:52px;height:52px;border-radius:var(--r-chip);display:flex;align-items:center;justify-content:center;font-size:1.6rem;background:color-mix(in srgb,var(--brand) 12%,white);margin-bottom:.8rem}
   @supports not (color:color-mix(in srgb,red,black)){.svc .chip{background:#eef2ea}}
   .svc h3{margin:0 0 .35rem;font-size:1.12rem;color:var(--brand-dark)}
   .svc p{font-size:.93rem;color:var(--muted)}
-  .quote-wrap{background:linear-gradient(160deg,var(--brand),var(--brand-dark));border-radius:22px;padding:2.5rem 1.6rem;color:#fff;box-shadow:0 18px 44px rgba(20,30,18,.28)}
+  .quote-wrap{background:linear-gradient(160deg,var(--brand),var(--brand-dark));border-radius:var(--r-wrap);padding:2.5rem 1.6rem;color:#fff;box-shadow:var(--sh-lift)}
   .quote-wrap h2{color:#fff}
   .quote-wrap p.lede{text-align:center;opacity:.92;margin-bottom:1.6rem}
   form{display:grid;gap:.9rem;max-width:29rem;margin:0 auto}
@@ -133,19 +138,40 @@ const VERT = {
   .quote-note{font-size:.82rem;text-align:center;opacity:.85;margin-top:.5rem}
   .quote-success{display:none;text-align:center;padding:2rem 1rem}
   .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem}
-  .rev{background:var(--card);border-radius:16px;padding:1.5rem 1.4rem;box-shadow:0 2px 14px rgba(30,40,25,.08);font-size:.95rem;border-left:4px solid var(--accent)}
+  .rev{background:var(--card);border-radius:var(--r-card);padding:1.5rem 1.4rem;box-shadow:var(--sh-card);font-size:.95rem;border-left:var(--card-edge) solid var(--accent)}
   .rev .stars{color:#eab308;letter-spacing:3px;font-size:1.05rem;margin-bottom:.4rem}
   .rev .who{margin-top:.7rem;font-weight:700;font-size:.83rem;color:var(--muted)}
-  .rating-hero{text-align:center;background:var(--card);border-radius:18px;padding:2rem 1.5rem;box-shadow:0 2px 14px rgba(30,40,25,.08);margin-bottom:1.4rem}
+  .rating-hero{text-align:center;background:var(--card);border-radius:var(--r-wrap);padding:2rem 1.5rem;box-shadow:var(--sh-card);margin-bottom:1.4rem}
   .rating-hero .big{font-size:2.6rem;font-weight:900;color:var(--brand-dark);font-family:Archivo,sans-serif;line-height:1}
   .rating-hero .stars{color:#eab308;letter-spacing:4px;font-size:1.3rem;margin:.35rem 0}
   .rating-hero .cnt{color:var(--muted);font-size:.95rem}
-  .area-strip{text-align:center;background:var(--card);border-radius:18px;padding:2rem 1.5rem;box-shadow:0 2px 14px rgba(30,40,25,.08)}
+  .area-strip{text-align:center;background:var(--card);border-radius:var(--r-wrap);padding:2rem 1.5rem;box-shadow:var(--sh-card)}
+  .faqs{max-width:46rem;margin:0 auto;display:grid;gap:.7rem}
+  .faqs details{background:var(--card);border-radius:var(--r-card);box-shadow:var(--sh-card);border-left:var(--card-edge) solid var(--brand);overflow:hidden}
+  .faqs summary{cursor:pointer;padding:1.1rem 1.3rem;font-weight:700;color:var(--brand-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  .faqs summary::-webkit-details-marker{display:none}
+  .faqs summary::after{content:"+";font-size:1.4rem;color:var(--accent);font-weight:800}
+  .faqs details[open] summary::after{content:"–"}
+  .faqs .fa{padding:0 1.3rem 1.15rem;color:var(--muted);font-size:.95rem}
+  /* ---- archetype structural variants (break the cookie-cutter skeleton) ---- */
+  body[data-arch="rugged"] header,body[data-arch="rugged"] .badge-row,body[data-arch="rugged"] .cta-row{text-align:left;justify-content:flex-start}
+  body[data-arch="rugged"] header p.sub{margin-left:0;margin-right:0}
+  body[data-arch="rugged"] h2,body[data-arch="rugged"] .quote-wrap h2{text-align:left}
+  body[data-arch="rugged"] .rule{margin-left:0;margin-right:0;height:5px;width:64px}
+  body[data-arch="rugged"] .svc{border-top-width:6px}
+  body[data-arch="rugged"] header h1{letter-spacing:-.01em}
+  body[data-arch="refined"] .svc{border-top:none;border:1px solid color-mix(in srgb,var(--brand) 14%,white)}
+  body[data-arch="refined"] .rev{border-left:none;border:1px solid color-mix(in srgb,var(--accent) 20%,white)}
+  body[data-arch="refined"] .rule{height:3px;width:44px;opacity:.7}
+  body[data-arch="refined"] header{padding-bottom:6.5rem}
   footer{position:relative;background:linear-gradient(180deg,var(--brand-dark),color-mix(in srgb,var(--brand-dark) 70%,black));color:#fff;text-align:center;padding:3rem 1.25rem 2.5rem;font-size:.9rem}
   @supports not (color:color-mix(in srgb,red,black)){footer{background:var(--brand-dark)}}
   footer .foot-call{font-size:1.45rem;font-weight:800;display:block;margin-bottom:.75rem;color:#fff;text-decoration:none}
-  .float-call{display:none}
-  @media(max-width:640px){.float-call{display:flex;position:fixed;bottom:1rem;left:1rem;right:1rem;z-index:60;background:var(--accent);color:#fff;border-radius:14px;padding:1.05rem;font-weight:800;font-size:1.1rem;justify-content:center;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.35)}body{padding-bottom:4.8rem}}
+  .btn-text{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.45);box-shadow:var(--sh-btn)}
+  .float-bar{display:none}
+  @media(max-width:640px){.float-bar{display:flex;gap:.5rem;position:fixed;bottom:1rem;left:1rem;right:1rem;z-index:60}
+    .float-btn{flex:1;text-align:center;padding:1.05rem;font-weight:800;font-size:1.05rem;text-decoration:none;border-radius:var(--r-btn);box-shadow:var(--sh-btn)}
+    .float-call{background:var(--accent);color:#fff}.float-text{background:#fff;color:var(--brand-dark)}body{padding-bottom:4.8rem}}
 </style>
 </head>
 <body>
@@ -159,6 +185,7 @@ const VERT = {
   <p class="sub" id="heroSub"></p>
   <div class="cta-row">
     <a class="btn btn-call" data-tel href="#">📞 Call <span data-phone></span></a>
+    <a class="btn btn-text" data-sms href="#">💬 Text Us</a>
     <a class="btn btn-quote" href="#quote" id="heroQuoteBtn">Get a Fast Quote →</a>
   </div>
   <svg class="treeline" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><path fill="rgba(0,0,0,.55)" d="M0,60 L0,40 C150,25 250,45 400,38 C560,30 640,50 800,42 C960,34 1050,50 1200,40 L1200,60 Z"/></svg>
@@ -181,7 +208,7 @@ const VERT = {
       <div><label for="faddr" id="addrLabel">Address or neighborhood</label><input id="faddr" name="address" required></div>
       <div><label for="fdesc">What do you need?</label><textarea id="fdesc" name="desc" rows="3"></textarea></div>
       <button type="submit" id="quoteSubmit"></button>
-      <p class="quote-note">Prefer to talk? <a data-tel href="#" style="color:#fff">Call <span data-phone></span></a>.</p>
+      <p class="quote-note">Prefer to talk or text? <a data-tel href="#" style="color:#fff">Call</a> or <a data-sms href="#" style="color:#fff">text us</a>.</p>
     </form>
     <div class="quote-success" id="quoteSuccess"><h3>✅ Got it — we’re on it.</h3><p>Expect a call or text shortly.</p></div>
   </div>
@@ -196,13 +223,22 @@ const VERT = {
   <!-- HONESTY: review cards paraphrase real public review themes; no fabricated verbatim quotes.
        Swap in the owner's real reviews (with permission) in the paid build. -->
 </section>
+<section id="faqSection" hidden>
+  <h2>Common Questions</h2><div class="rule"></div>
+  <div class="faqs" id="faqs"></div>
+</section>
 <section><div class="area-strip"><h2>Service Area</h2><div class="rule"></div><p>Proudly serving <strong data-area></strong>.</p></div></section>
 <footer>
   <a class="foot-call" data-tel href="#">📞 <span data-phone></span></a>
   <p><span data-name></span> · <span data-city></span>, Louisiana</p>
   <p style="margin-top:1rem;font-size:.75rem;opacity:.6">Site by AutoAnts</p>
 </footer>
-<a class="float-call" data-tel href="#">📞 Tap to Call — Free Quote</a>
+<div class="float-bar">
+  <a class="float-btn float-call" data-tel href="#">📞 Call</a>
+  <a class="float-btn float-text" data-sms href="#">💬 Text</a>
+</div>
+<script type="application/ld+json" id="ldLocal"></script>
+<script type="application/ld+json" id="ldFaq"></script>
 <script>
   // ---- palette from VERT ----
   const p = VERT.palette || {};
@@ -213,11 +249,35 @@ const VERT = {
   if(p.bg) rootStyle.setProperty('--bg', p.bg);
   if(p.ink) rootStyle.setProperty('--ink', p.ink);
 
+  // ---- design personality from VERT.style (so no two verticals look stamped alike) ----
+  const STYLES = {
+    // rugged: sharp corners + hard offset shadows + left-aligned hero = bold blue-collar
+    rugged:  {rCard:'5px', rBtn:'5px', rChip:'8px', rWrap:'8px', edge:'6px',
+              shCard:'0 3px 0 rgba(0,0,0,.14)', shLift:'0 7px 0 rgba(0,0,0,.16)', shBtn:'0 5px 0 rgba(0,0,0,.30)'},
+    // clean: modern, moderate radius, real shadows = precise service trades
+    clean:   {rCard:'12px',rBtn:'10px',rChip:'12px',rWrap:'16px',edge:'4px',
+              shCard:'0 4px 16px rgba(20,30,25,.10)', shLift:'0 14px 30px rgba(20,30,25,.16)', shBtn:'0 8px 22px rgba(0,0,0,.24)'},
+    // refined: pill buttons, round chips, soft diffuse shadows, bordered cards = premium/appointment
+    refined: {rCard:'22px',rBtn:'999px',rChip:'50%', rWrap:'28px',edge:'0px',
+              shCard:'0 10px 30px rgba(20,30,25,.10)',shLift:'0 20px 46px rgba(20,30,25,.16)',shBtn:'0 12px 34px rgba(0,0,0,.18)'}
+  };
+  const arch = STYLES[VERT.style] ? VERT.style : 'clean';
+  const st = STYLES[arch];
+  rootStyle.setProperty('--r-card',st.rCard); rootStyle.setProperty('--r-btn',st.rBtn);
+  rootStyle.setProperty('--r-chip',st.rChip); rootStyle.setProperty('--r-wrap',st.rWrap);
+  rootStyle.setProperty('--card-edge',st.edge);
+  rootStyle.setProperty('--sh-card',st.shCard); rootStyle.setProperty('--sh-lift',st.shLift);
+  rootStyle.setProperty('--sh-btn',st.shBtn);
+  document.body.dataset.arch = arch;
+
   // ---- business facts ----
   const fill = (sel,val)=>document.querySelectorAll(sel).forEach(e=>e.textContent=val);
   fill('[data-name]',BIZ.name); fill('[data-phone]',BIZ.phone); fill('[data-city]',BIZ.city);
   fill('[data-area]',BIZ.serviceArea||BIZ.city);
   document.querySelectorAll('[data-tel]').forEach(e=>e.href='tel:'+BIZ.phoneRaw);
+  // tap-to-text: lower-friction than a form for a phone visitor (sms: works on iOS + Android)
+  const smsBody = encodeURIComponent('Hi, I need a '+(VERT.label||'service')+' quote — here’s what’s going on: ');
+  document.querySelectorAll('[data-sms]').forEach(e=>e.href='sms:'+BIZ.phoneRaw+'?&body='+smsBody);
   document.title = BIZ.name + ' — ' + VERT.titleTail + ' | ' + BIZ.city + ', LA';
   if(BIZ.rating && BIZ.reviewCount){
     fill('[data-rating]',BIZ.rating); fill('[data-reviews]',BIZ.reviewCount);
@@ -249,6 +309,32 @@ const VERT = {
   // review theme cards (honest paraphrase; only if provided)
   document.getElementById('reviews').innerHTML = (VERT.reviewThemes||[]).map(t=>
     '<div class="rev"><div class="stars">★★★★★</div><p>'+t+'</p><div class="who">— summarized from public reviews</div></div>').join('');
+
+  // ---- FAQs (honesty-safe defaults about the AutoAnts-built flow; VERT.faqs overrides) ----
+  const svc = (VERT.label||'service');
+  const DEFAULT_FAQS = [
+    {q:'Do you offer free quotes?', a:'Yes. Tell us what you need — through the form above or a quick call — and we’ll get you a fast, no-obligation quote.'},
+    {q:'What areas do you serve?', a:'We serve '+(BIZ.serviceArea||BIZ.city)+' and the surrounding communities. Not sure if you’re in range? Just ask.'},
+    {q:'How quickly can you respond?', a:'Reach out and we’ll get back to you fast — and we prioritize urgent '+svc+' jobs.'},
+    {q:'How do I get started?', a:'Call '+BIZ.phone+' or send a quote request above, and we’ll follow up quickly to lock in a time.'}
+  ];
+  const faqs = (VERT.faqs && VERT.faqs.length) ? VERT.faqs.map(f=>({q:tok(f.q),a:tok(f.a)})) : DEFAULT_FAQS;
+  if(faqs.length){
+    document.getElementById('faqs').innerHTML = faqs.map(f=>
+      '<details><summary>'+f.q+'</summary><div class="fa">'+f.a+'</div></details>').join('');
+    document.getElementById('faqSection').hidden=false;
+  }
+
+  // ---- structured data: LocalBusiness (found by Google + AI) + FAQPage ----
+  const ld = {"@context":"https://schema.org","@type":"LocalBusiness","name":BIZ.name,
+    "telephone":BIZ.phoneRaw,"areaServed":(BIZ.serviceArea||BIZ.city)+", LA",
+    "description":VERT.titleTail+" in "+BIZ.city+", LA",
+    "address":{"@type":"PostalAddress","addressLocality":BIZ.city,"addressRegion":"LA","addressCountry":"US"}};
+  if(BIZ.rating && BIZ.reviewCount)  // honesty: only when verified
+    ld.aggregateRating={"@type":"AggregateRating","ratingValue":String(BIZ.rating),"reviewCount":String(BIZ.reviewCount)};
+  document.getElementById('ldLocal').textContent = JSON.stringify(ld);
+  document.getElementById('ldFaq').textContent = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage",
+    "mainEntity":faqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))});
 
   function handleQuote(ev){ev.preventDefault();document.getElementById('quoteForm').style.display='none';document.getElementById('quoteSuccess').style.display='block';return false;}
 </script>

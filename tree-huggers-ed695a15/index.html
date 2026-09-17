@@ -119,6 +119,9 @@ const BIZ = {
     @keyframes pulse { 0%,100% { box-shadow: 0 10px 28px rgba(0,0,0,.35); } 50% { box-shadow: 0 10px 34px rgba(0,0,0,.55); } }
     body { padding-bottom: 4.8rem; }
   }
+.btn-text{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.45);box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.ttbar{display:none}
+@media(max-width:640px){.ttbar{display:flex;gap:.5rem;position:fixed;bottom:1rem;left:1rem;right:1rem;z-index:60}.ttbtn{flex:1;text-align:center;padding:1.05rem;font-weight:800;font-size:1.05rem;text-decoration:none;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.3)}.ttcall{background:var(--accent);color:#fff}.tttext{background:#fff;color:var(--brand-dark)}}
 </style>
 </head>
 <body>
@@ -135,6 +138,7 @@ const BIZ = {
   <p class="sub">Tree removal, trimming &amp; emergency storm response for <span data-area></span>. Fast quotes. No runaround.</p>
   <div class="cta-row">
     <a class="btn btn-call" data-tel href="#">📞 Call <span data-phone></span></a>
+    <a class="btn btn-text" data-sms href="#">💬 Text Us</a>
     <a class="btn btn-quote" href="#quote">Get a Fast Quote →</a>
   </div>
   <svg class="treeline" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><path fill="rgba(0,0,0,.55)" d="M0,60 L0,38 C40,30 60,14 90,16 C120,18 130,32 160,30 C200,27 210,8 250,10 C290,12 300,30 340,32 C380,34 400,18 440,16 C480,14 500,30 540,34 C580,38 610,20 650,18 C690,16 710,34 750,36 C790,38 820,22 860,20 C900,18 920,34 960,36 C1000,38 1030,24 1070,22 C1110,20 1140,34 1200,38 L1200,60 Z"/></svg>
@@ -193,7 +197,7 @@ const BIZ = {
   <p style="margin-top:1rem;font-size:.75rem;opacity:.6">Site by AutoAnts</p>
 </footer>
 
-<a class="float-call" data-tel href="#">📞 Tap to Call — Free Quote</a>
+<div class="ttbar"><a class="ttbtn ttcall" data-tel href="#">📞 Call</a><a class="ttbtn tttext" data-sms href="#">💬 Text</a></div>
 
 <script>
   // Populate all data-* slots from the CONFIG block
@@ -205,6 +209,7 @@ const BIZ = {
   document.querySelectorAll('[data-rating]').forEach(e => e.textContent = BIZ.rating);
   document.querySelectorAll('[data-reviews]').forEach(e => e.textContent = BIZ.reviewCount);
   document.querySelectorAll('[data-tel]').forEach(e => e.href = 'tel:' + BIZ.phoneRaw);
+  document.querySelectorAll('[data-sms]').forEach(e=>e.href='sms:'+BIZ.phoneRaw+'?&body='+encodeURIComponent("Hi, I need a quote. Here's what's going on: "));
   document.title = BIZ.name + ' — Tree Removal & Trimming | ' + BIZ.city + ', LA';
 
   // Demo-mode quote form: swaps to success state. In the PAID build, wire this
