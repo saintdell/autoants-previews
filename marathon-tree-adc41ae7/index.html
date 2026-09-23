@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-layout="editorial" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
@@ -56,11 +56,11 @@ const BIZ = {
   .storm-bar a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
 
   /* ---- Hero ---- */
-  header { position: relative; overflow: hidden; color: #fff; padding: 4rem 1.25rem 5.5rem; text-align: center;
+  header { position: relative; overflow: hidden; color: #fff; padding: 5.5rem 1.25rem 6rem; text-align: center;
     background:
-      radial-gradient(90rem 40rem at 85% -20%, rgba(255,255,255,.10), transparent 60%),
-      radial-gradient(60rem 30rem at 10% 110%, rgba(0,0,0,.35), transparent 60%),
-      linear-gradient(170deg, var(--brand) 0%, var(--brand-dark) 78%); }
+      linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.55) 45%, rgba(6,12,8,.86) 100%),
+      url("assets/hero.jpg");
+    background-size: cover; background-position: center 30%; }
   header .treeline { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 54px; display: block; opacity: .5; }
   header .badge-row { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; position: relative; }
   .badge { background: rgba(255,255,255,.12); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: .35rem 1rem; font-size: .8rem; font-weight: 700; letter-spacing: .02em; }
@@ -79,7 +79,7 @@ const BIZ = {
   .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.1rem; }
   .svc { background: var(--card); border-radius: 16px; padding: 1.6rem 1.4rem; box-shadow: 0 2px 14px rgba(30,40,25,.08); border-top: 4px solid var(--brand); transition: transform .15s ease, box-shadow .15s ease; }
   .svc:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(30,40,25,.14); }
-  .svc .chip { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; background: color-mix(in srgb, var(--brand) 12%, white); margin-bottom: .8rem; }
+  .svc .chip { width: 54px; height: 54px; border-radius: 15px; display: flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--brand) 12%, white); color: var(--brand); margin-bottom: .85rem; } .svc .chip svg { width: 28px; height: 28px; }
   @supports not (color: color-mix(in srgb, red, black)) { .svc .chip { background: #eef2ea; } }
   .svc h3 { margin: 0 0 .35rem; font-size: 1.12rem; color: var(--brand-dark); }
   .svc p { font-size: .93rem; color: var(--muted); }
@@ -130,19 +130,19 @@ const BIZ = {
 </head>
 <body>
 
-<div class="storm-bar">⚠️ Storm damage? We answer 24/7 — <a data-tel href="#">Call now</a></div>
+<div class="storm-bar">Storm damage? We answer 24/7 — <a data-tel href="#">Call now</a></div>
 
 <header>
   <div class="badge-row">
-    <span class="badge">⭐ 54 Five-Star Ratings on LawnStarter</span>
-    <span class="badge">📞 Real Office Line</span>
-    <span class="badge">📍 Baton Rouge, LA</span>
+    <span class="badge">54 Five-Star Ratings on LawnStarter</span>
+    <span class="badge">Real Office Line</span>
+    <span class="badge">Baton Rouge, LA</span>
   </div>
   <h1><span data-name></span></h1>
   <p class="sub">Tree removal, trimming &amp; emergency storm response for <span data-area></span>. Fast quotes. No runaround.</p>
   <div class="cta-row">
-    <a class="btn btn-call" data-tel href="#">📞 Call <span data-phone></span></a>
-    <a class="btn btn-text" data-sms href="#">💬 Text Us</a>
+    <a class="btn btn-call" data-tel href="#">Call <span data-phone></span></a>
+    <a class="btn btn-text" data-sms href="#">Text Us</a>
     <a class="btn btn-quote" href="#quote">Get a Fast Quote →</a>
   </div>
   <svg class="treeline" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><path fill="rgba(0,0,0,.55)" d="M0,60 L0,38 C40,30 60,14 90,16 C120,18 130,32 160,30 C200,27 210,8 250,10 C290,12 300,30 340,32 C380,34 400,18 440,16 C480,14 500,30 540,34 C580,38 610,20 650,18 C690,16 710,34 750,36 C790,38 820,22 860,20 C900,18 920,34 960,36 C1000,38 1030,24 1070,22 C1110,20 1140,34 1200,38 L1200,60 Z"/></svg>
@@ -152,10 +152,10 @@ const BIZ = {
   <h2>What We Do</h2>
   <div class="rule"></div>
   <div class="services">
-    <div class="svc"><div class="chip">🌪️</div><h3>Emergency Storm Response</h3><p>Tree on your house or blocking your driveway? We come out same-day, tarp and clear safely.</p></div>
-    <div class="svc"><div class="chip">🪓</div><h3>Tree Removal</h3><p>Full removals of any size — including tight spots, over structures, and hazard trees.</p></div>
-    <div class="svc"><div class="chip">✂️</div><h3>Trimming &amp; Pruning</h3><p>Hurricane-prep thinning, deadwood removal, and shaping to keep limbs off your roof.</p></div>
-    <div class="svc"><div class="chip">🪵</div><h3>Stump Grinding</h3><p>Grind it below grade so you can plant grass — or anything else — right over it.</p></div>
+    <div class="svc"><div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h13"/><path d="M4 10h9"/><path d="M5 14h7"/><path d="M13 10l4-6-1 5h4l-4 6 1-5z" fill="currentColor" stroke="none"/></svg></div><h3>Emergency Storm Response</h3><p>Tree on your house or blocking your driveway? We come out same-day, tarp and clear safely.</p></div>
+    <div class="svc"><div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l7 7-3 3-7-7z"/><path d="M12 8L4 16"/><path d="M4 16l-1 5 5-1"/></svg></div><h3>Tree Removal</h3><p>Full removals of any size — including tight spots, over structures, and hazard trees.</p></div>
+    <div class="svc"><div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><path d="M8 8l12 10"/><path d="M8 16L20 6"/></svg></div><h3>Trimming &amp; Pruning</h3><p>Hurricane-prep thinning, deadwood removal, and shaping to keep limbs off your roof.</p></div>
+    <div class="svc"><div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="4.4"/><circle cx="12" cy="12" r="1.3"/></svg></div><h3>Stump Grinding</h3><p>Grind it below grade so you can plant grass — or anything else — right over it.</p></div>
   </div>
 </section>
 
@@ -166,8 +166,8 @@ const BIZ = {
     <p class="lede">Tell us what's going on and we'll get back to you.</p>
     <form id="quoteForm" onsubmit="return handleQuote(event)">
       <div class="urgency">
-        <input type="radio" name="urgency" id="u1" value="emergency"><label for="u1">🚨 Emergency<br><small>tree down / on structure</small></label>
-        <input type="radio" name="urgency" id="u2" value="standard" checked><label for="u2">🗓️ Standard<br><small>quote for planned work</small></label>
+        <input type="radio" name="urgency" id="u1" value="emergency"><label for="u1">Emergency<br><small>tree down / on structure</small></label>
+        <input type="radio" name="urgency" id="u2" value="standard" checked><label for="u2">Standard<br><small>quote for planned work</small></label>
       </div>
       <div><label for="fname">Name</label><input id="fname" name="name" required autocomplete="name"></div>
       <div><label for="fphone">Phone</label><input id="fphone" name="phone" type="tel" required autocomplete="tel"></div>
@@ -177,7 +177,7 @@ const BIZ = {
       <p class="quote-note">Prefer to talk? <a data-tel href="#" style="color:#fff">Call <span data-phone></span></a>.</p>
     </form>
     <div class="quote-success" id="quoteSuccess">
-      <h3>✅ Got it — we're on it.</h3>
+      <h3>Got it — we're on it.</h3>
       <p>Expect a call or text shortly. If a tree is on a structure, call us right now: <a data-tel href="#" style="color:#fff;font-weight:800"><span data-phone></span></a></p>
     </div>
   </div>
@@ -186,9 +186,9 @@ const BIZ = {
 <section>
   <h2>Why Folks Trust Marathon Tree Service</h2>
   <div class="reviews">
-    <div class="rev"><div style="font-size:1.8rem">⭐</div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">54 Five-Star Ratings</p><p>Fifty-four customers rated Marathon five stars on LawnStarter.</p></div>
-    <div class="rev"><div style="font-size:1.8rem">🏡</div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">A Baton Rouge Name</p><p>A long-established local crew on O&#x27;Neal Road — not a franchise.</p></div>
-    <div class="rev"><div style="font-size:1.8rem">💪</div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">Built for the Long Haul</p><p>The name says it: steady, reliable work, job after job.</p></div>
+    <div class="rev"><div style="font-size:1.8rem"></div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">54 Five-Star Ratings</p><p>Fifty-four customers rated Marathon five stars on LawnStarter.</p></div>
+    <div class="rev"><div style="font-size:1.8rem"></div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">A Baton Rouge Name</p><p>A long-established local crew on O&#x27;Neal Road — not a franchise.</p></div>
+    <div class="rev"><div style="font-size:1.8rem"></div><p style="font-weight:700;margin:.4rem 0 .3rem;color:var(--brand)">Built for the Long Haul</p><p>The name says it: steady, reliable work, job after job.</p></div>
   </div>
 </section>
 
@@ -201,12 +201,12 @@ const BIZ = {
 </section>
 
 <footer>
-  <a class="foot-call" data-tel href="#">📞 <span data-phone></span></a>
+  <a class="foot-call" data-tel href="#"><span data-phone></span></a>
   <p><span data-name></span> · <span data-city></span>, Louisiana · Baton Rouge tree care — rated five stars 54 times</p>
   <p style="margin-top:1rem;font-size:.75rem;opacity:.6">Site by AutoAnts</p>
 </footer>
 
-<div class="ttbar"><a class="ttbtn ttcall" data-tel href="#">📞 Call</a><a class="ttbtn tttext" data-sms href="#">💬 Text</a></div>
+<div class="ttbar"><a class="ttbtn ttcall" data-tel href="#">Call</a><a class="ttbtn tttext" data-sms href="#">Text</a></div>
 
 <script>
   // Populate all data-* slots from the CONFIG block
@@ -229,6 +229,105 @@ const BIZ = {
     document.getElementById('quoteSuccess').style.display = 'block';
     return false;
   }
+</script>
+<style id="design-pass">
+  :root{ --dp-ease-out: cubic-bezier(.23,1,.32,1); }
+  html{ scroll-behavior:smooth; }
+  ::selection{ background:var(--accent); color:#fff; }
+  .btn{ transition: transform .15s var(--dp-ease-out), box-shadow .15s var(--dp-ease-out), filter .15s var(--dp-ease-out) !important; }
+  .btn:active{ transform: scale(.97) !important; }
+  .svc{ transition: transform .16s var(--dp-ease-out), box-shadow .16s var(--dp-ease-out) !important; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+  @media (hover:hover) and (pointer:fine){
+    .btn:hover{ filter: brightness(1.06); }
+    .svc:hover{ transform: translateY(-4px); }
+  }
+  @media (hover:none),(pointer:coarse){ .svc:hover{ transform:none; } }
+  @media (prefers-reduced-motion:reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition-duration:.08s !important; animation-duration:.01ms !important; }
+  }
+  /* mobile-native fixes (previews are viewed on phones) */
+  *{ -webkit-tap-highlight-color: transparent; }
+  input, textarea, select{ font-size: 16px; }            /* stop iOS zoom-on-focus */
+  .btn, .ttbtn{ -webkit-user-select:none; user-select:none; -webkit-touch-callout:none; }
+  .float-call, .ttbar{ bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important; }
+</style>
+<style id="layout-variant">
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&display=swap");
+/* ================= EDITORIAL — type scale: condensed headline, bottom-left ================= */
+html[data-layout="editorial"] header{
+  display:flex; flex-direction:column; justify-content:flex-end; text-align:left;
+  min-height:clamp(440px,66vh,640px); padding:3rem clamp(1.25rem,5vw,4rem) 3.25rem;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.74) 0%,rgba(0,0,0,.4) 55%,rgba(0,0,0,.08) 100%),
+    linear-gradient(0deg,rgba(0,0,0,.55) 0%,transparent 60%),
+    url("assets/hero.jpg") center 35%/cover; }
+html[data-layout="editorial"] header .treeline{ display:none; }
+html[data-layout="editorial"] header .badge-row{ order:0; justify-content:flex-start; gap:.7rem; margin-bottom:1.1rem; }
+html[data-layout="editorial"] .badge{
+  background:none; backdrop-filter:none; border:0; border-radius:0; padding:0;
+  text-transform:uppercase; letter-spacing:.16em; font-size:.74rem; opacity:.9; }
+html[data-layout="editorial"] .badge:not([hidden]) ~ .badge:not([hidden])::before{ content:"/"; margin-right:.7rem; opacity:.55; }
+html[data-layout="editorial"] h1,
+html[data-layout="editorial"] h2,
+html[data-layout="editorial"] h3{ font-family:"Barlow Condensed",Archivo,Inter,sans-serif; text-transform:uppercase; }
+html[data-layout="editorial"] header h1{
+  font-size:clamp(3rem,9.5vw,6.4rem); font-weight:800; line-height:.9; letter-spacing:0;
+  max-width:15ch; text-wrap:balance; text-shadow:none; margin-bottom:1.1rem; }
+html[data-layout="editorial"] header p.sub{ margin:0 0 1.9rem; max-width:34rem; }
+html[data-layout="editorial"] header .cta-row{ justify-content:flex-start; }
+html[data-layout="editorial"] .btn,
+html[data-layout="editorial"] button[type=submit],
+html[data-layout="editorial"] .quote-wrap{ border-radius:3px; }
+html[data-layout="editorial"] section h2{ text-align:left; font-size:clamp(2.1rem,5vw,3.1rem); font-weight:800; line-height:1; letter-spacing:0; }
+html[data-layout="editorial"] .rule{ width:100%; height:1px; margin:.9rem 0 2rem; background:color-mix(in srgb,var(--ink) 18%,transparent); border-radius:0; }
+html[data-layout="editorial"] .quote-wrap .rule{ background:rgba(255,255,255,.25); }
+html[data-layout="editorial"] .quote-wrap h2{ text-align:left; }
+html[data-layout="editorial"] .quote-wrap p.lede{ text-align:left; }
+html[data-layout="editorial"] .quote-wrap form{ margin:0; }
+/* services: open columns under a heavy rule, no card */
+html[data-layout="editorial"] .services{ gap:2rem 1.75rem; grid-template-columns:repeat(3,minmax(0,1fr)); }
+/* column count follows the service count so no row ends in an orphan */
+html[data-layout="editorial"] .services:has(> .svc:nth-child(4):last-child){ grid-template-columns:repeat(4,minmax(0,1fr)); }
+html[data-layout="editorial"] .services:has(> .svc:nth-child(2):last-child){ grid-template-columns:repeat(2,minmax(0,1fr)); }
+@media (max-width:900px){ html[data-layout="editorial"] .services:has(> .svc:nth-child(4):last-child){ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+html[data-layout="editorial"] .svc{
+  background:none; box-shadow:none; border:0; border-radius:0; padding:1.1rem 0 0;
+  border-top:3px solid var(--brand-dark); }
+html[data-layout="editorial"] .svc .chip{ background:none; width:auto; height:auto; justify-content:flex-start; color:var(--accent); margin-bottom:.6rem; }
+html[data-layout="editorial"] .svc h3{ font-size:1.45rem; font-weight:800; line-height:1.05; letter-spacing:.01em; }
+html[data-layout="editorial"] .svc:hover{ transform:none; box-shadow:none; }
+/* reviews: pull quotes, not cards */
+html[data-layout="editorial"] .rev{ background:none; box-shadow:none; border:0; border-radius:0; padding:0 0 0 1.1rem; border-left:2px solid var(--accent); font-size:1.08rem; }
+html[data-layout="editorial"] .area-strip{ text-align:left; background:none; box-shadow:none; border-radius:0; padding:0; }
+html[data-layout="editorial"] .area-strip .rule{ margin-bottom:1rem; }
+@media (max-width:640px){
+  html[data-layout="editorial"] header{ min-height:clamp(420px,78vh,560px); padding-bottom:2.5rem; }
+  html[data-layout="editorial"] header h1{ font-size:clamp(2.6rem,13vw,4rem); overflow-wrap:anywhere; }
+  html[data-layout="editorial"] .services{ grid-template-columns:minmax(0,1fr) !important; }
+}
+</style>
+<style id="stars-fix">
+  /* per-review star counts aren't verified, so no stars on cards; the attributed quote carries it */
+  .rev .stars:empty{ display:none; }
+  .rating-hero .stars{ position:relative; display:inline-block; line-height:0; letter-spacing:0; margin:.5rem 0; }
+  .rating-hero .stars svg{ width:22px; height:22px; margin:0 2px; }
+  .rating-hero .stars .fill{ position:absolute; inset:0 auto 0 0; overflow:hidden; white-space:nowrap; }
+</style>
+<script id="stars-fix-js">
+  // rating-hero only: stars filled to the VERIFIED aggregate rating (e.g. 4.9 -> 98%)
+  (function(){
+    var star='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg>';
+    var five=star+star+star+star+star;
+    document.querySelectorAll('.rating-hero .stars').forEach(function(el){
+      var r=parseFloat((document.querySelector('[data-rating]')||{}).textContent);
+      if(!(r>0&&r<=5)){ el.style.display='none'; return; }
+      el.innerHTML='<span style="color:#d6d3cc">'+five+'</span><span class="fill" style="width:'+(r/5*100)+'%;color:#eab308">'+five+'</span>';
+      el.setAttribute('role','img'); el.setAttribute('aria-label',r+' out of 5 stars');
+    });
+  })();
 </script>
 </body>
 </html>

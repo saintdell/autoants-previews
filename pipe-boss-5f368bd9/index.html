@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-layout="editorial" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
@@ -14,7 +14,7 @@
 <!-- ============================================================
      AUTOANTS UNIVERSAL PREVIEW TEMPLATE — vertical-factory engine
      Content is driven by TWO injected config blocks:
-       BIZ  = per-business facts (name, phone, city, rating…)  [verified public facts only]
+       BIZ = per-business facts (name, phone, city, rating…) [verified public facts only]
        VERT = per-vertical content pack (services, copy, palette, urgency, trust…)
      scripts/build_site.py merges verticals/<vertical>.yaml + a lead's facts
      into this file. Same honesty gate as the hand-built sites: no fabricated
@@ -39,7 +39,7 @@ const VERT = {
   "label": "plumbing",
   "titleTail": "Plumbing, Drains & Water Heaters",
   "heroSub": "Emergency plumbing, drains & water heaters for {area}. Fast, upfront, no mess left behind.",
-  "urgencyBar": "💧 Burst pipe or no hot water? We handle plumbing emergencies —",
+  "urgencyBar": "Burst pipe or no hot water? We handle plumbing emergencies —",
   "urgencyCall": "Call now",
   "trustHeading": "Neighbors Trust Us",
   "quoteHeading": "Get a Quote in Under a Minute",
@@ -48,9 +48,9 @@ const VERT = {
   "heroQuoteBtn": "Get a Fast Quote",
   "addrLabel": "Service address or neighborhood",
   "urgencyLabels": [
-    "🚨 Emergency",
+    "Emergency",
     "leak / no water",
-    "🗓️ Standard",
+    "Standard",
     "quote for planned work"
   ],
   "palette": {
@@ -62,22 +62,22 @@ const VERT = {
   },
   "services": [
     {
-      "icon": "🚿",
+      "icon": "",
       "title": "Leaks & Repairs",
       "blurb": "Dripping, running, or burst — we find it and fix it, and clean up after."
     },
     {
-      "icon": "🌀",
+      "icon": "",
       "title": "Drain Cleaning",
       "blurb": "Slow or clogged drains cleared, plus camera inspection for the recurring ones."
     },
     {
-      "icon": "♨️",
+      "icon": "",
       "title": "Water Heaters",
       "blurb": "Repair or replace — tank and tankless — with straight pricing."
     },
     {
-      "icon": "🔩",
+      "icon": "",
       "title": "Repiping & Fixtures",
       "blurb": "Faucets, toilets, and full repipes done right the first time."
     }
@@ -95,7 +95,7 @@ const VERT = {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{ --brand:#1b4d2e; --accent:#e8842c; --brand-dark:#123420; --bg:#f6f4ee; --ink:#1f241c; --card:#fff; --muted:#5c6157;
+  :root{ --brand:#334155;   /* palette: slate-signal */--accent:#b91c1c;--brand-dark:#232c3a;--bg:#f2f3f5;--ink:#1e2530;--card:#fff; --muted:#5a6270;
     /* design personality — overridden per vertical by VERT.style (rugged|clean|refined) */
     --r-card:12px; --r-btn:10px; --r-chip:12px; --r-wrap:18px;
     --sh-card:0 3px 14px rgba(30,40,25,.10); --sh-lift:0 12px 28px rgba(30,40,25,.16); --sh-btn:0 8px 24px rgba(0,0,0,.28);
@@ -185,14 +185,14 @@ const VERT = {
 <div class="storm-bar" id="stormBar" hidden><span id="stormText"></span> <a data-tel href="#" id="stormCall">Call now</a></div>
 <header>
   <div class="badge-row">
-    <span class="badge" id="ratingBadge" hidden>⭐ <span data-rating></span> rating (<span data-reviews></span> reviews)</span>
-    <span class="badge">📍 <span data-city></span>, LA</span>
+    <span class="badge" id="ratingBadge" hidden><span data-rating></span> rating (<span data-reviews></span> reviews)</span>
+    <span class="badge"><span data-city></span>, LA</span>
   </div>
   <h1><span data-name></span></h1>
   <p class="sub" id="heroSub"></p>
   <div class="cta-row">
-    <a class="btn btn-call" data-tel href="#">📞 Call <span data-phone></span></a>
-    <a class="btn btn-text" data-sms href="#">💬 Text Us</a>
+    <a class="btn btn-call" data-tel href="#">Call <span data-phone></span></a>
+    <a class="btn btn-text" data-sms href="#">Text Us</a>
     <a class="btn btn-quote" href="#quote" id="heroQuoteBtn">Get a Fast Quote →</a>
   </div>
   <svg class="treeline" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><path fill="rgba(0,0,0,.55)" d="M0,60 L0,40 C150,25 250,45 400,38 C560,30 640,50 800,42 C960,34 1050,50 1200,40 L1200,60 Z"/></svg>
@@ -217,13 +217,13 @@ const VERT = {
       <button type="submit" id="quoteSubmit"></button>
       <p class="quote-note">Prefer to talk or text? <a data-tel href="#" style="color:#fff">Call</a> or <a data-sms href="#" style="color:#fff">text us</a>.</p>
     </form>
-    <div class="quote-success" id="quoteSuccess"><h3>✅ Got it — we’re on it.</h3><p>Expect a call or text shortly.</p></div>
+    <div class="quote-success" id="quoteSuccess"><h3>Got it — we’re on it.</h3><p>Expect a call or text shortly.</p></div>
   </div>
 </section>
 <section>
   <h2 id="trustHeading"></h2><div class="rule"></div>
   <div class="rating-hero" id="ratingHero" hidden>
-    <div class="big"><span data-rating></span> / 5</div><div class="stars">★★★★★</div>
+    <div class="big"><span data-rating></span> / 5</div><div class="stars"></div>
     <div class="cnt">Rated across <span data-reviews></span> customer reviews</div>
   </div>
   <div class="reviews" id="reviews"></div>
@@ -236,13 +236,13 @@ const VERT = {
 </section>
 <section><div class="area-strip"><h2>Service Area</h2><div class="rule"></div><p>Proudly serving <strong data-area></strong>.</p></div></section>
 <footer>
-  <a class="foot-call" data-tel href="#">📞 <span data-phone></span></a>
+  <a class="foot-call" data-tel href="#"><span data-phone></span></a>
   <p><span data-name></span> · <span data-city></span>, Louisiana</p>
   <p style="margin-top:1rem;font-size:.75rem;opacity:.6">Site by AutoAnts</p>
 </footer>
 <div class="float-bar">
-  <a class="float-btn float-call" data-tel href="#">📞 Call</a>
-  <a class="float-btn float-text" data-sms href="#">💬 Text</a>
+  <a class="float-btn float-call" data-tel href="#">Call</a>
+  <a class="float-btn float-text" data-sms href="#">Text</a>
 </div>
 <script type="application/ld+json" id="ldLocal"></script>
 <script type="application/ld+json" id="ldFaq"></script>
@@ -259,7 +259,7 @@ const VERT = {
   // ---- design personality from VERT.style (so no two verticals look stamped alike) ----
   const STYLES = {
     // rugged: sharp corners + hard offset shadows + left-aligned hero = bold blue-collar
-    rugged:  {rCard:'5px', rBtn:'5px', rChip:'8px', rWrap:'8px', edge:'6px',
+    rugged: {rCard:'5px', rBtn:'5px', rChip:'8px', rWrap:'8px', edge:'6px',
               shCard:'0 3px 0 rgba(0,0,0,.14)', shLift:'0 7px 0 rgba(0,0,0,.16)', shBtn:'0 5px 0 rgba(0,0,0,.30)'},
     // clean: modern, moderate radius, real shadows = precise service trades
     clean:   {rCard:'12px',rBtn:'10px',rChip:'12px',rWrap:'16px',edge:'4px',
@@ -300,7 +300,7 @@ const VERT = {
   document.getElementById('quoteLede').textContent = tok(VERT.quoteLede||'');
   document.getElementById('quoteSubmit').textContent = VERT.quoteCta||'Send My Request';
   document.getElementById('trustHeading').textContent = VERT.trustHeading||'What People Say';
-  const ul = VERT.urgencyLabels||['🚨 Now','urgent','🗓️ Planned','a quote'];
+  const ul = VERT.urgencyLabels||['Now','urgent','Planned','a quote'];
   document.getElementById('u1l').innerHTML = ul[0]+'<br><small>'+ul[1]+'</small>';
   document.getElementById('u2l').innerHTML = ul[2]+'<br><small>'+ul[3]+'</small>';
   if(VERT.addrLabel) document.getElementById('addrLabel').textContent = VERT.addrLabel;
@@ -312,10 +312,10 @@ const VERT = {
   }
   // services
   document.getElementById('services').innerHTML = (VERT.services||[]).map(s=>
-    '<div class="svc"><div class="chip">'+s.icon+'</div><h3>'+s.title+'</h3><p>'+s.blurb+'</p></div>').join('');
+    '<div class="svc"><div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg></div><h3>'+s.title+'</h3><p>'+s.blurb+'</p></div>').join('');
   // review theme cards (honest paraphrase; only if provided)
   document.getElementById('reviews').innerHTML = (VERT.reviewThemes||[]).map(t=>
-    '<div class="rev"><div class="stars">★★★★★</div><p>'+t+'</p><div class="who">— summarized from public reviews</div></div>').join('');
+    '<div class="rev"><div class="stars"></div><p>'+t+'</p><div class="who">— summarized from public reviews</div></div>').join('');
 
   // ---- FAQs (honesty-safe defaults about the AutoAnts-built flow; VERT.faqs overrides) ----
   const svc = (VERT.label||'service');
@@ -337,13 +337,112 @@ const VERT = {
     "telephone":BIZ.phoneRaw,"areaServed":(BIZ.serviceArea||BIZ.city)+", LA",
     "description":VERT.titleTail+" in "+BIZ.city+", LA",
     "address":{"@type":"PostalAddress","addressLocality":BIZ.city,"addressRegion":"LA","addressCountry":"US"}};
-  if(BIZ.rating && BIZ.reviewCount)  // honesty: only when verified
+  if(BIZ.rating && BIZ.reviewCount) // honesty: only when verified
     ld.aggregateRating={"@type":"AggregateRating","ratingValue":String(BIZ.rating),"reviewCount":String(BIZ.reviewCount)};
   document.getElementById('ldLocal').textContent = JSON.stringify(ld);
   document.getElementById('ldFaq').textContent = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage",
     "mainEntity":faqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))});
 
   function handleQuote(ev){ev.preventDefault();document.getElementById('quoteForm').style.display='none';document.getElementById('quoteSuccess').style.display='block';return false;}
+</script>
+<style id="design-pass">
+  :root{ --dp-ease-out: cubic-bezier(.23,1,.32,1); }
+  html{ scroll-behavior:smooth; }
+  ::selection{ background:var(--accent); color:#fff; }
+  .btn{ transition: transform .15s var(--dp-ease-out), box-shadow .15s var(--dp-ease-out), filter .15s var(--dp-ease-out) !important; }
+  .btn:active{ transform: scale(.97) !important; }
+  .svc{ transition: transform .16s var(--dp-ease-out), box-shadow .16s var(--dp-ease-out) !important; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+  @media (hover:hover) and (pointer:fine){
+    .btn:hover{ filter: brightness(1.06); }
+    .svc:hover{ transform: translateY(-4px); }
+  }
+  @media (hover:none),(pointer:coarse){ .svc:hover{ transform:none; } }
+  @media (prefers-reduced-motion:reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition-duration:.08s !important; animation-duration:.01ms !important; }
+  }
+  /* mobile-native fixes (previews are viewed on phones) */
+  *{ -webkit-tap-highlight-color: transparent; }
+  input, textarea, select{ font-size: 16px; }            /* stop iOS zoom-on-focus */
+  .btn, .ttbtn{ -webkit-user-select:none; user-select:none; -webkit-touch-callout:none; }
+  .float-call, .ttbar{ bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important; }
+</style>
+<style id="layout-variant">
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&display=swap");
+/* ================= EDITORIAL — type scale: condensed headline, bottom-left ================= */
+html[data-layout="editorial"] header{
+  display:flex; flex-direction:column; justify-content:flex-end; text-align:left;
+  min-height:clamp(440px,66vh,640px); padding:3rem clamp(1.25rem,5vw,4rem) 3.25rem;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.74) 0%,rgba(0,0,0,.4) 55%,rgba(0,0,0,.08) 100%),
+    linear-gradient(0deg,rgba(0,0,0,.55) 0%,transparent 60%),
+    url("assets/hero.jpg") center 35%/cover; }
+html[data-layout="editorial"] header .treeline{ display:none; }
+html[data-layout="editorial"] header .badge-row{ order:0; justify-content:flex-start; gap:.7rem; margin-bottom:1.1rem; }
+html[data-layout="editorial"] .badge{
+  background:none; backdrop-filter:none; border:0; border-radius:0; padding:0;
+  text-transform:uppercase; letter-spacing:.16em; font-size:.74rem; opacity:.9; }
+html[data-layout="editorial"] .badge:not([hidden]) ~ .badge:not([hidden])::before{ content:"/"; margin-right:.7rem; opacity:.55; }
+html[data-layout="editorial"] h1,
+html[data-layout="editorial"] h2,
+html[data-layout="editorial"] h3{ font-family:"Barlow Condensed",Archivo,Inter,sans-serif; text-transform:uppercase; }
+html[data-layout="editorial"] header h1{
+  font-size:clamp(3rem,9.5vw,6.4rem); font-weight:800; line-height:.9; letter-spacing:0;
+  max-width:15ch; text-wrap:balance; text-shadow:none; margin-bottom:1.1rem; }
+html[data-layout="editorial"] header p.sub{ margin:0 0 1.9rem; max-width:34rem; }
+html[data-layout="editorial"] header .cta-row{ justify-content:flex-start; }
+html[data-layout="editorial"] .btn,
+html[data-layout="editorial"] button[type=submit],
+html[data-layout="editorial"] .quote-wrap{ border-radius:3px; }
+html[data-layout="editorial"] section h2{ text-align:left; font-size:clamp(2.1rem,5vw,3.1rem); font-weight:800; line-height:1; letter-spacing:0; }
+html[data-layout="editorial"] .rule{ width:100%; height:1px; margin:.9rem 0 2rem; background:color-mix(in srgb,var(--ink) 18%,transparent); border-radius:0; }
+html[data-layout="editorial"] .quote-wrap .rule{ background:rgba(255,255,255,.25); }
+html[data-layout="editorial"] .quote-wrap h2{ text-align:left; }
+html[data-layout="editorial"] .quote-wrap p.lede{ text-align:left; }
+html[data-layout="editorial"] .quote-wrap form{ margin:0; }
+/* services: open columns under a heavy rule, no card */
+html[data-layout="editorial"] .services{ gap:2rem 1.75rem; grid-template-columns:repeat(3,minmax(0,1fr)); }
+/* column count follows the service count so no row ends in an orphan */
+html[data-layout="editorial"] .services:has(> .svc:nth-child(4):last-child){ grid-template-columns:repeat(4,minmax(0,1fr)); }
+html[data-layout="editorial"] .services:has(> .svc:nth-child(2):last-child){ grid-template-columns:repeat(2,minmax(0,1fr)); }
+@media (max-width:900px){ html[data-layout="editorial"] .services:has(> .svc:nth-child(4):last-child){ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+html[data-layout="editorial"] .svc{
+  background:none; box-shadow:none; border:0; border-radius:0; padding:1.1rem 0 0;
+  border-top:3px solid var(--brand-dark); }
+html[data-layout="editorial"] .svc .chip{ background:none; width:auto; height:auto; justify-content:flex-start; color:var(--accent); margin-bottom:.6rem; }
+html[data-layout="editorial"] .svc h3{ font-size:1.45rem; font-weight:800; line-height:1.05; letter-spacing:.01em; }
+html[data-layout="editorial"] .svc:hover{ transform:none; box-shadow:none; }
+/* reviews: pull quotes, not cards */
+html[data-layout="editorial"] .rev{ background:none; box-shadow:none; border:0; border-radius:0; padding:0 0 0 1.1rem; border-left:2px solid var(--accent); font-size:1.08rem; }
+html[data-layout="editorial"] .area-strip{ text-align:left; background:none; box-shadow:none; border-radius:0; padding:0; }
+html[data-layout="editorial"] .area-strip .rule{ margin-bottom:1rem; }
+@media (max-width:640px){
+  html[data-layout="editorial"] header{ min-height:clamp(420px,78vh,560px); padding-bottom:2.5rem; }
+  html[data-layout="editorial"] header h1{ font-size:clamp(2.6rem,13vw,4rem); overflow-wrap:anywhere; }
+  html[data-layout="editorial"] .services{ grid-template-columns:minmax(0,1fr) !important; }
+}
+</style>
+<style id="stars-fix">
+  /* per-review star counts aren't verified, so no stars on cards; the attributed quote carries it */
+  .rev .stars:empty{ display:none; }
+  .rating-hero .stars{ position:relative; display:inline-block; line-height:0; letter-spacing:0; margin:.5rem 0; }
+  .rating-hero .stars svg{ width:22px; height:22px; margin:0 2px; }
+  .rating-hero .stars .fill{ position:absolute; inset:0 auto 0 0; overflow:hidden; white-space:nowrap; }
+</style>
+<script id="stars-fix-js">
+  // rating-hero only: stars filled to the VERIFIED aggregate rating (e.g. 4.9 -> 98%)
+  (function(){
+    var star='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg>';
+    var five=star+star+star+star+star;
+    document.querySelectorAll('.rating-hero .stars').forEach(function(el){
+      var r=parseFloat((document.querySelector('[data-rating]')||{}).textContent);
+      if(!(r>0&&r<=5)){ el.style.display='none'; return; }
+      el.innerHTML='<span style="color:#d6d3cc">'+five+'</span><span class="fill" style="width:'+(r/5*100)+'%;color:#eab308">'+five+'</span>';
+      el.setAttribute('role','img'); el.setAttribute('aria-label',r+' out of 5 stars');
+    });
+  })();
 </script>
 </body>
 </html>
