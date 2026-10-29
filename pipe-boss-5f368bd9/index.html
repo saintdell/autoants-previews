@@ -28,8 +28,8 @@ const BIZ = {
   "phoneRaw": "+15048772726",
   "city": "Metairie",
   "serviceArea": "Metairie & Kenner",
-  "rating": "5.0",
-  "reviewCount": "160",
+  "rating": "",
+  "reviewCount": "",
   "licensed": false
 };
 /* /INJECT:BIZ */
@@ -180,6 +180,21 @@ const VERT = {
     .float-btn{flex:1;text-align:center;padding:1.05rem;font-weight:800;font-size:1.05rem;text-decoration:none;border-radius:var(--r-btn);box-shadow:var(--sh-btn)}
     .float-call{background:var(--accent);color:#fff}.float-text{background:#fff;color:var(--brand-dark)}body{padding-bottom:4.8rem}}
 </style>
+<script type="application/ld+json" id="ld-business">{
+ "@context": "https://schema.org",
+ "@type": "Plumber",
+ "name": "Pipe Boss Plumbing",
+ "@id": "https://saintdell.github.io/autoants-previews/pipe-boss-5f368bd9/#business",
+ "url": "https://saintdell.github.io/autoants-previews/pipe-boss-5f368bd9/",
+ "telephone": "+15048772726",
+ "address": {
+  "@type": "PostalAddress",
+  "addressLocality": "Metairie",
+  "addressRegion": "LA",
+  "addressCountry": "US"
+ },
+ "areaServed": "Metairie & Kenner"
+}</script>
 </head>
 <body>
 <div class="storm-bar" id="stormBar" hidden><span id="stormText"></span> <a data-tel href="#" id="stormCall">Call now</a></div>
@@ -244,7 +259,6 @@ const VERT = {
   <a class="float-btn float-call" data-tel href="#">Call</a>
   <a class="float-btn float-text" data-sms href="#">Text</a>
 </div>
-<script type="application/ld+json" id="ldLocal"></script>
 <script type="application/ld+json" id="ldFaq"></script>
 <script>
   // ---- palette from VERT ----
@@ -332,14 +346,6 @@ const VERT = {
     document.getElementById('faqSection').hidden=false;
   }
 
-  // ---- structured data: LocalBusiness (found by Google + AI) + FAQPage ----
-  const ld = {"@context":"https://schema.org","@type":"LocalBusiness","name":BIZ.name,
-    "telephone":BIZ.phoneRaw,"areaServed":(BIZ.serviceArea||BIZ.city)+", LA",
-    "description":VERT.titleTail+" in "+BIZ.city+", LA",
-    "address":{"@type":"PostalAddress","addressLocality":BIZ.city,"addressRegion":"LA","addressCountry":"US"}};
-  if(BIZ.rating && BIZ.reviewCount) // honesty: only when verified
-    ld.aggregateRating={"@type":"AggregateRating","ratingValue":String(BIZ.rating),"reviewCount":String(BIZ.reviewCount)};
-  document.getElementById('ldLocal').textContent = JSON.stringify(ld);
   document.getElementById('ldFaq').textContent = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage",
     "mainEntity":faqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))});
 
